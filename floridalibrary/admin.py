@@ -8,7 +8,7 @@ from floridalibrary.models import Author, Genre, Book, BookInstance, Language
 #admin.site.register(Author)
 admin.site.register(Genre)
 #admin.site.register(BookInstance)
-#admin.site.register(Language)
+admin.site.register(Language)
     
 # Define the admin class
 class AuthorAdmin(admin.ModelAdmin):
@@ -24,7 +24,7 @@ class BooksInstanceInline(admin.TabularInline):
 # Register the Admin classes for Book using the decorator
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'language', 'display_genre')
+    list_display = ('title', 'author', 'display_genre')
     inlines = [BooksInstanceInline]
 
 # Register the Admin classes for BookInstance using the decorator
@@ -42,9 +42,4 @@ class BookInstanceAdmin(admin.ModelAdmin):
         }),
     )
    
-# Define the admin class
-class LanguageAdmin(admin.ModelAdmin):
-    model = Language
 
-# Register the admin class with the associated model
-admin.site.register(Language, LanguageAdmin)
