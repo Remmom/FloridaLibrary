@@ -106,7 +106,14 @@ class Author(models.Model):
 class Language(models.Model):
     """Model representing a language"""
     name = models.CharField(max_length=200, help_text="Enter the book's natural language (e.g. English, French, Japanese etc.)")
-
+    
+    class Meta:
+        ordering = ['name']
+    
+    def get_absolute_url(self):
+        """Returns the url to access a particular language instance."""
+        return reverse('language-detail', args=[str(self.id)])
+    
     def __str__(self):
         """String for representing the Language object"""
         return self.name
