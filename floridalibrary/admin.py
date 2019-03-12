@@ -8,7 +8,7 @@ from floridalibrary.models import Author, Genre, Book, BookInstance, Language
 #admin.site.register(Author)
 admin.site.register(Genre)
 #admin.site.register(BookInstance)
-admin.site.register(Language)
+#admin.site.register(Language)
     
 # Define the admin class
 class AuthorAdmin(admin.ModelAdmin):
@@ -41,3 +41,11 @@ class BookInstanceAdmin(admin.ModelAdmin):
             'fields': ('status', 'due_back', 'borrower')
         }),
     )
+   
+# Define the admin class
+class LanguageAdmin(admin.ModelAdmin):
+    list_display = ('name')
+    fields = ['name']
+
+# Register the admin class with the associated model
+admin.site.register(Language, LanguageAdmin)
