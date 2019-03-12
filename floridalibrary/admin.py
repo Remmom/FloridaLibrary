@@ -44,8 +44,7 @@ class BookInstanceAdmin(admin.ModelAdmin):
    
 # Define the admin class
 class LanguageAdmin(admin.ModelAdmin):
-    list_display = ('name')
-    fields = ['name']
+    model = Language
 
 # Register the admin class with the associated model
 admin.site.register(Language, LanguageAdmin)
